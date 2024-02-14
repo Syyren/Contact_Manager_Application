@@ -1,6 +1,8 @@
 ﻿@model Contact
 @{
-    ViewBag.Title = $"{Model.FirstName} {Model.LastName} Details" ;
+    //making a name variable for easy re-use in the razor view.
+    string name = Model.FirstName + " " + Model.LastName;
+    ViewBag.Title = $"{name} Details" ;
 }
 
 <div class="d-flex justify-content-center">
@@ -8,25 +10,46 @@
 </div>
 
 <div class="form-group">
-    <label asp-for="FirstName">First Name</label>
-    <label asp-for="FirstName"></label>
-</div>
-<div class="form-group">
-    <label asp-for="LastName">Last Name</label>
-    <label asp-for="FirstName"></label>
+    <label>Name:</label>
+    <label>@name</label>
 </div>
 
 <div class="form-group">
-    <label asp-for="Phone">Phone</label>
-    <label asp-for="FirstName"></label>
+    <label>Phone:</label>
+    <label>@Model.Phone</label>
 </div>
 
 <div class="form-group">
-    <label asp-for="Email">Email</label>
-    <label asp-for="FirstName"></label>
+    <label>Email:</label>
+    <label>@Model.Email</label>
 </div>
 
 <div class="form-group">
-    <label asp-for="CategoryId">Category</label>
-    <label asp-for="CategoryId"></label>
+    <label>Category:</label>
+    <label></label>
+</div>
+
+<div class="form-group">
+    <label>Organization:</label>
+    <label>@Model.Organization</label>
+</div>
+
+<div class="form-group">
+    <label>Date Added:</label>
+    <label>@Model.Log</label>
+</div>
+
+<div class="d-flex justify-content-center">
+    <a 
+       asp-controller="Contact" 
+       asp-action="Edit"
+       asp-route-id="@Model.Id"
+       asp-route-slug="@Model.Slug"
+       class="btn btn-outline-primary me-2" style="width: 100%">Edit</a>
+    <a 
+       asp-controller="Contact" 
+       asp-action="Delete"
+       asp-route-id="@Model.Id"
+       asp-route-slug="@Model.Slug"
+       class="btn btn-outline-danger" style="width: 100%">Delete</a>
 </div>

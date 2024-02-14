@@ -18,6 +18,13 @@ namespace Contact_Manager_Application.Controllers
         }
 
         [HttpGet]
+        public IActionResult Details(int id)
+        {
+            var contact = context.Contacts.Find(id);
+            return View(contact);
+        }
+
+        [HttpGet]
         public IActionResult Add()
         {
             ViewBag.Action = "Add";
