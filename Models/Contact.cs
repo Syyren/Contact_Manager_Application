@@ -21,6 +21,8 @@ namespace Contact_Manager_Application.Models
         [Required(ErrorMessage = "Please enter an Email.")]
         public string Email { get; set; }
 
+        public string? Organization { get; set; }
+
         [Required(ErrorMessage = "Please choose a Category.")]
         public string CategoryId { get; set; }
 
