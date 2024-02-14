@@ -30,7 +30,9 @@ namespace Contact_Manager_Application.Models
                 LastName = "McGrandle",
                 Phone = "888-888-8888",
                 Email = "Ryan@McGrandle.com",
-                CategoryId = "Fr"
+                CategoryId = "Fr",
+                Organization = null,
+                Log = DateTime.Now
             },
             new Contact
             {
@@ -39,7 +41,9 @@ namespace Contact_Manager_Application.Models
                 LastName = "de Frece",
                 Phone = "888-888-8889",
                 Email = "Kaden@deFrece.com",
-                CategoryId = "F"
+                CategoryId = "F",
+                Organization = null,
+                Log = DateTime.Now
             },
             new Contact
             {
@@ -48,7 +52,9 @@ namespace Contact_Manager_Application.Models
                 LastName = "Fillingham",
                 Phone = "888-888-8887",
                 Email = "Dane@Fillingham.com",
-                CategoryId = "W"
+                CategoryId = "W",
+                Organization = null,
+                Log = DateTime.Now
             }
         );
         }

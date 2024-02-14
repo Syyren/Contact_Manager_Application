@@ -28,6 +28,8 @@ namespace Contact_Manager_Application.Models
 
         public Category? Category { get; set; }
 
+        public DateTime Log { get; set; }
+
         public string Slug => FirstName?.Replace(' ', '-').ToLower() + '-' + LastName?.Replace(' ', '-').ToLower();
 
         public Contact()
@@ -38,9 +40,11 @@ namespace Contact_Manager_Application.Models
             Phone = "None";
             Email = "None";
             CategoryId = "U";
+            Organization = null;
+            Log = DateTime.Now;
         }
 
-        public Contact(int id, string firstName, string lastName, string phone, string email, string category)
+        public Contact(int id, string firstName, string lastName, string phone, string email, string category, string? organization)
         {
             Id = id;
             FirstName = firstName;
@@ -48,6 +52,8 @@ namespace Contact_Manager_Application.Models
             Phone = phone;
             Email = email;
             CategoryId = category;
+            Organization = organization;
+            Log = DateTime.Now;
         }
     }
 }

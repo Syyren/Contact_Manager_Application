@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -7,7 +8,7 @@
 namespace Contact_Manager_Application.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class Initialize : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -34,7 +35,9 @@ namespace Contact_Manager_Application.Migrations
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Phone = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CategoryId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    Organization = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CategoryId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Log = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -60,12 +63,12 @@ namespace Contact_Manager_Application.Migrations
 
             migrationBuilder.InsertData(
                 table: "Contacts",
-                columns: new[] { "Id", "CategoryId", "Email", "FirstName", "LastName", "Phone" },
+                columns: new[] { "Id", "CategoryId", "Email", "FirstName", "LastName", "Log", "Organization", "Phone" },
                 values: new object[,]
                 {
-                    { 1, "Fr", "Ryan@McGrandle.com", "Ryan", "McGrandle", "888-888-8888" },
-                    { 2, "F", "Kaden@deFrece.com", "Kaden", "de Frece", "888-888-8889" },
-                    { 3, "W", "Dane@Fillingham.com", "Dane", "Fillingham", "888-888-8887" }
+                    { 1, "Fr", "Ryan@McGrandle.com", "Ryan", "McGrandle", new DateTime(2024, 2, 13, 18, 36, 29, 49, DateTimeKind.Local).AddTicks(5466), null, "888-888-8888" },
+                    { 2, "F", "Kaden@deFrece.com", "Kaden", "de Frece", new DateTime(2024, 2, 13, 18, 36, 29, 49, DateTimeKind.Local).AddTicks(5472), null, "888-888-8889" },
+                    { 3, "W", "Dane@Fillingham.com", "Dane", "Fillingham", new DateTime(2024, 2, 13, 18, 36, 29, 49, DateTimeKind.Local).AddTicks(5478), null, "888-888-8887" }
                 });
 
             migrationBuilder.CreateIndex(
