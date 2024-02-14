@@ -29,8 +29,10 @@ namespace Contact_Manager_Application.Models
         [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", ErrorMessage = "Please enter a valid Email.")]
         public string Email { get; set; }
 
+        //nullable attribute "organization"
         public string? Organization { get; set; }
 
+        //Requiring the seelction of a category from the dropdown list
         [Required(ErrorMessage = "Please choose a Category.")]
         public string CategoryId { get; set; }
 

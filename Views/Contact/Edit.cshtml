@@ -4,7 +4,7 @@
     ViewBag.Title = title;
 }
 
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center mt-4">
     <h2>@ViewBag.Title</h2>
 </div>
 
@@ -57,11 +57,19 @@
             type="submit" class="btn btn-outline-primary mt-2 me-2">
             Submit
         </button>
-        <a 
-           asp-controller="Contact"
-           asp-action="Details"
-           asp-route-id="@Model.Id"
-           asp-route-slug="@Model.Slug"
-           class="btn btn-outline-danger mt-2">Cancel</a>
+        @if (ViewBag.Action == "Edit")
+        {
+            <a asp-controller="Contact"
+               asp-action="Details"
+               asp-route-id="@Model.Id"
+               asp-route-slug="@Model.Slug"
+               class="btn btn-outline-danger mt-2">Cancel</a>
+        }
+        else
+        {
+            <a asp-controller="Contact"
+               asp-action="Index"
+               class="btn btn-outline-danger mt-2">Cancel</a>
+        };
     </div>
 </form>

@@ -16,6 +16,7 @@ namespace Contact_Manager_Application.Controllers
         //action method that returns the index view
         public IActionResult Index()
         {
+            //ensures the loading of the categories
             var contacts = context.Contacts.Include(contact => contact.Category).OrderBy(
                 contact => contact.FirstName).ToList();
             return View(contacts); //returns a view that has a table with a list of the contacts in the database
@@ -25,7 +26,8 @@ namespace Contact_Manager_Application.Controllers
         [HttpGet]
         public IActionResult Details(int id)
         {
-            var contact = context.Contacts.Find(id);
+            //ensures the loading of the category
+            var contact = context.Contacts.Include(c => c.Category).FirstOrDefault(c => c.Id == id);
             return View(contact); //returns a view that shows the details of that specific id
         }
 

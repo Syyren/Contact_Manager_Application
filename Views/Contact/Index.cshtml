@@ -3,7 +3,7 @@
     ViewBag.Title = "Contacts";
 }
 
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center mt-4">
     <h2 class="display-4">Contact Manager</h2>
 </div>
 
@@ -35,7 +35,13 @@
                        asp-route-id="@contact.Id"
                        asp-route-slug="@contact.Slug">@contact.FirstName</a>
                 </td>
-                <td><a href="">@contact.LastName</a></td>
+                <td>
+                    <a 
+                       asp-controller="Contact"
+                       asp-action="Details"
+                       asp-route-id="@contact.Id"
+                       asp-route-slug="@contact.Slug">@contact.LastName</a>
+                </td>
                 <td>@contact.Phone</td>
                 <td>@contact.Email</td>
                 <td>@contact.Category.Name</td>

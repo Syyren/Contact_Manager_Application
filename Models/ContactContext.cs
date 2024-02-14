@@ -5,17 +5,20 @@ namespace Contact_Manager_Application.Models
 {
     public class ContactContext : DbContext
     {
+        //setting the context's db context options
         public ContactContext(DbContextOptions<ContactContext> options)
             : base(options)
         { }
 
+        //getting the dbset for the contacts and categories
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Category> Categories { get; set; }
 
+        //giving the model creator its context for database creation
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
+            //defining the categories and their IDs
             modelBuilder.Entity<Category>().HasData(
                  new Category { CategoryId = "F", Name = "Family" },
                  new Category { CategoryId = "Fr", Name = "Friend" },
