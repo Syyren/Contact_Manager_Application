@@ -5,36 +5,36 @@
     ViewBag.Title = $"{name} Details" ;
 }
 
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center ">
     <h2>@ViewBag.Title</h2>
 </div>
 
-<div class="form-group">
-    <label>Name:</label>
+<div class="d-flex justify-content-center form-group">
+    <label class="">Name:</label>
     <label>@name</label>
 </div>
 
-<div class="form-group">
+<div class="d-flex justify-content-center form-group">
     <label>Phone:</label>
     <label>@Model.Phone</label>
 </div>
 
-<div class="form-group">
+<div class="d-flex justify-content-center form-group">
     <label>Email:</label>
     <label>@Model.Email</label>
 </div>
 
-<div class="form-group">
+<div class="d-flex justify-content-center form-group">
     <label>Category:</label>
     <label></label>
 </div>
 
-<div class="form-group">
+<div class="d-flex justify-content-center form-group">
     <label>Organization:</label>
     <label>@Model.Organization</label>
 </div>
 
-<div class="form-group">
+<div class="d-flex justify-content-center form-group">
     <label>Date Added:</label>
     <label>@Model.Log</label>
 </div>
@@ -45,11 +45,15 @@
        asp-action="Edit"
        asp-route-id="@Model.Id"
        asp-route-slug="@Model.Slug"
-       class="btn btn-outline-primary me-2" style="width: 100%">Edit</a>
+       class="btn btn-outline-primary me-2" style="width: 50%">Edit</a>
     <a 
        asp-controller="Contact" 
        asp-action="Delete"
        asp-route-id="@Model.Id"
        asp-route-slug="@Model.Slug"
-       class="btn btn-outline-danger" style="width: 100%">Delete</a>
+       class="btn btn-outline-danger me-2" style="width: 50%">Delete</a>
+    <a 
+       asp-controller="Contact"
+       asp-action="Index"
+       class="btn btn-outline-secondary" style="width: 50%">Return</a>
 </div>
