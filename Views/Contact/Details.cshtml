@@ -5,7 +5,7 @@
     ViewBag.Title = $"{name} Details";
 }
 
-<div class="d-flex justify-content-center mt-4">
+<div class="d-flex justify-content-center mt-4 mb-5">
     <h2 class="display-4">@ViewBag.Title</h2>
 </div>
 
@@ -45,16 +45,16 @@
        asp-action="Edit"
        asp-route-id="@Model.Id"
        asp-route-slug="@Model.Slug"
-       class="btn btn-outline-primary me-2" style="width: 30%">Edit</a>
+       class="btn btn-outline-primary me-2" style="width: 30vw">Edit</a>
     <a 
        asp-controller="Contact" 
        asp-action="Delete"
        asp-route-id="@Model.Id"
        asp-route-slug="@Model.Slug"
-       class="btn btn-outline-danger me-2" style="width: 30%">Delete</a>
+       class="btn btn-outline-danger me-2" style="width: 30vw">Delete</a>
 </div>
 <div class="d-flex justify-content-center mt-3">
     <a asp-controller="Contact"
        asp-action="Index"
-       class="btn btn-outline-secondary" style="width: 30%">Return</a>
+       class="btn btn-outline-secondary" style="width: 30vw">Return</a>
 </div>

@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Delete Contact";
 }
-<div class="d-flex justify-content-center mt-4">
+<div class="d-flex justify-content-center mt-4 mb-5">
     <h2 class="mb-2">Confirm Deletion</h2>
 </div>
 
@@ -13,14 +13,16 @@
 <form asp-action="Delete" method="post" class="d-flex justify-content-center">
     <input type="hidden" asp-for="Id" />
 
-    <button type="submit" class="btn btn-outline-danger me-2">
-        Delete
-    </button>
+    <div class="d-flex">
+        <button type="submit" class="btn btn-outline-danger me-2" style="width: 30vw">
+            Delete
+        </button>
 
-    <a 
-       asp-controller="Contact"
-       asp-action="Details"
-       asp-route-id="@Model.Id"
-       asp-route-slug="@Model.Slug"
-       class="btn btn-outline-primary">Cancel</a>
+        <a asp-controller="Contact"
+           asp-action="Details"
+           asp-route-id="@Model.Id"
+           asp-route-slug="@Model.Slug"
+           class="btn btn-outline-primary"
+           style="width: 30vw">Cancel</a>
+    </div>
 </form>
