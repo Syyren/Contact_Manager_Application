@@ -18,8 +18,8 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/error");
-app.UseHsts();
+    app.UseExceptionHandler("/Shared/Error");
+    app.UseHsts();
 }
 
 app.UseHttpsRedirection();

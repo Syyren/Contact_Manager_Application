@@ -32,17 +32,20 @@ namespace Contact_Manager_Application.Models
         //nullable attribute "organization"
         public string? Organization { get; set; }
 
-        //Requiring the seelction of a category from the dropdown list
+        //Requiring the selection of a category from the dropdown list
         [Required(ErrorMessage = "Please choose a Category.")]
         public string CategoryId { get; set; }
 
         public Category? Category { get; set; }
 
+        //making the timestamp attribute for inputted data
         public DateTime Log { get; set; }
 
+        //creating the slug that will display a contact name at the end of the url
         public string Slug => 
             FirstName?.Replace(' ', '-').ToLower() + '-' + LastName?.Replace(' ', '-').ToLower();
 
+        //default empty constructor
         public Contact()
         {
             Id = 0;
@@ -55,6 +58,7 @@ namespace Contact_Manager_Application.Models
             Log = DateTime.Now;
         }
 
+        //constructor that takes in all values for submitting as a proper object
         public Contact(int id, string firstName, string lastName, string phone, string email, string category, string? organization)
         {
             Id = id;
