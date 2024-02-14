@@ -1,0 +1,48 @@
+﻿@model List<Contact>
+@{
+    ViewBag.Title = "Contacts";
+}
+
+<div class="d-flex justify-content-center">
+    <h2 class="display-4">Contact Manager</h2>
+</div>
+
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Category</th>
+            <th>
+                <div class="d-flex justify-content-center">
+                    <a asp-controller="Contact" asp-action="Add" class="btn btn-outline-primary" style="width: 100%" >
+                        Add a Contact
+                    </a>
+                </div>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var contact in Model)
+        {
+            <tr>
+                <td>@contact.FirstName</td>
+                <td>@contact.LastName</td>
+                <td>@contact.Phone</td>
+                <td>@contact.Email</td>
+                <td>@contact.Category.Name</td>
+                <td class="align-items-center">
+                    <div class="d-flex justify-content-center">
+                        <a asp-controller="Contact" asp-action="Edit"
+                           asp-route-id="@contact.Id" class="btn btn-outline-primary me-2" style="width: 100%">Edit</a>
+                        <a asp-controller="Contact" asp-action="Delete"
+                           asp-route-id="@contact.Id" class="btn btn-outline-danger" style="width: 100%">Delete</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
